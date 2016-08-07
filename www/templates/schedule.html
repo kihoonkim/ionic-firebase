@@ -12,17 +12,54 @@
       <div class="col">Room4</div>
     </div>
 
+    <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefresh()">
+    </ion-refresher>
     <ion-list>
-      <ion-item ng-repeat="time in times">
-        <div class="row-no-padding">
-          <div class="col">{{time}}</div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
+      <ion-item ng-repeat="schedule in schedules">
+        <div class="row">
+          <div class="col">{{schedule.time}}</div>
+          <div class="col" ng-click="openReservation({{$index}}, 1)">{{schedule.room1}}</div>
+          <div class="col" ng-click="openReservation({{$index}}, 2)">{{schedule.room2}}</div>
+          <div class="col" ng-click="openReservation({{$index}}, 3)">{{schedule.room3}}</div>
+          <div class="col" ng-click="openReservation({{$index}}, 4)">{{schedule.room4}}</div>
         </div>
       </ion-item>
     </ion-list>
-
   </ion-content>
+
+  <script id="templates/reservation.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">New Reservation</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+      </ion-header-bar>
+      <ion-content class="padding">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Room</span>
+            <input ng-model="meetingroom.room" type="text">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Name</span>
+            <input ng-model="meetingroom.name" type="text">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input ng-model="meetingroom.email" type="text">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Start Time</span>
+            <input ng-model="meetingroom.startTime" type="text">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">End Time</span>
+            <input ng-model="meetingroom.endTime" type="text">
+          </label>
+          <button class="button button-full button-positive" ng-click="reserve(meetingroom)">Reserve Room</button>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
 </ion-view>

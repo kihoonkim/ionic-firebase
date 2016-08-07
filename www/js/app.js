@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'firebase'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -42,22 +42,4 @@ angular.module('starter', ['ionic', 'starter.controllers', 'firebase'])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/login');
-})
-
-.factory("FirebaseAuth", function($firebaseArray) {
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBeVc0whj7PUA_dr5ODSDhvexPjIk2kBLY",
-    authDomain: "first-firebase-933f2.firebaseapp.com",
-    databaseURL: "https://first-firebase-933f2.firebaseio.com",
-    storageBucket: "first-firebase-933f2.appspot.com",
-  };
-  firebase.initializeApp(config);
-
-  console.log(firebase);
-  return firebase.auth();
-})
-.factory("FirebaseDB", function($firebaseArray) {
-  return firebase.database();
-})
-;
+});
