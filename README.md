@@ -38,3 +38,21 @@ $ ionic emulate android
 https://developer.android.com/studio/install.html  
 C:\Users\kihoonkim\AppData\Local\Android\sdk
 ```
+
+## Firebase Hosting
+- firebase cli 설치
+```
+$ npm install -g firebase-tools
+```
+- Google 로그인
+```
+$ firebase login
+```
+- 프로젝트 시작 (IONIC은 www 디렉토리를 배포하면 됨 )
+```
+$ firebase init
+```
+- 웹사이트 배포:
+```
+$ firebase deploy
+```
