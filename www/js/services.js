@@ -3,7 +3,7 @@ angular.module('starter.services', [])
 .factory("$firebase", function() {
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyBeVc0whj7PUA_dr5ODSDhvexPjIk2kBLY",
+    apiKey: "",
     authDomain: "first-firebase-933f2.firebaseapp.com",
     databaseURL: "https://first-firebase-933f2.firebaseio.com",
     storageBucket: "first-firebase-933f2.appspot.com",
